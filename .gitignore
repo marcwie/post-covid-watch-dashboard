@@ -1,0 +1,8 @@
+.ipynb_checkpoints
+.env
+.python-version
+__pycache__
+output/
+data/
+poetry.lock
+outputs/
