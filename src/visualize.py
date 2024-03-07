@@ -19,8 +19,8 @@ def load(vital_filename, user_filename, sheet):
     df['day'] = pd.to_datetime(df['day'])
     df['days_since_start'] = (df['day'] - df['Testdatum']).dt.days
     df.rename(columns={'Gruppe\n[In = 0, Ko = 1] ': 'cohort'}, inplace=True)
-    df.cohort[df.cohort==0] = 'Intervention'
-    df.cohort[df.cohort==1] = 'Control'
+    df.loc[df.cohort==0, 'cohort'] = 'Intervention'
+    df.loc[df.cohort==1, 'cohort'] = 'Control'
 
     df['value'] = df['doubleValue'].fillna(0) + df['longValue'].fillna(0)
 
