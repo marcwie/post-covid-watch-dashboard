@@ -14,4 +14,7 @@ output:
 download:
 	sh scripts/download.sh
 
+dashboard:
+	streamlit run src/visualize.py
+
 .PHONY: output
