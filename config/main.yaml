@@ -3,6 +3,10 @@ data:
   raw: data/01_raw
   interim: data/02_interim
   processed: data/03_processed
-
+  files:
+    vitals: daily_part0001.csv
+    users:
+      file: lc_watch_bus_data_2023_12_19.xlsx
+      sheet: Stand_2024_02_29
 compute:
   folder: computations
