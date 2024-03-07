@@ -104,7 +104,7 @@ def main(config):
 
     # Setup the dashboard
     st.title('WATCH Data Explorer')
-    vital = st.selectbox('Select vital type', g.reset_index().type.unique(), index=19)
+    vital = st.selectbox('Select vital type', g.reset_index().type.unique(), index=24)
     customers = st.multiselect('Select individual pseudonyms', df.customer.unique())
     min_points = st.slider('Minimum daily data points', 1, 20, 10)
     reference = st.toggle('Use start date as reference', value=False)
