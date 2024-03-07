@@ -26,3 +26,7 @@ You can then download all data using ```make download```. You also need an `.xls
 # Visualize
 
 After finishing setup you can start the dashboard locally by first activating the virtual environment using `make activate`. Then type `make dashboard`. This should open a web-browser displaying the dashboard. Navigate to `localhost:8502` if the browser doesn't open the dashboard automatically.
+
+Below is a short video that shows the dashboard in action.
+
+![https://media3.giphy.com/media/aUovxH8Vf9qDu/giphy.gif](https://s9.gifyu.com/images/SUK6y.gif)
