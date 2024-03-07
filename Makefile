@@ -11,4 +11,7 @@ notebook:
 output:
 	sh scripts/execute_notebooks.sh
 
+download:
+	sh scripts/download.sh
+
 .PHONY: output
