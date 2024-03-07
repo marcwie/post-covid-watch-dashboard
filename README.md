@@ -1,47 +1,28 @@
-# Data science template
+# Premise
 
-This is a minimal template for my (data) science projects. Requires [poetry](https://python-poetry.org/).
+A dashboard to display wearable data collected in the [WATCH Project](https://www.uniklinikum-jena.de/cscc/Post_COVID_Zentrum/WATCH.html).
+
+*WATCH – Mobile care close to home to manage cross-sector therapy for post-COVID-19 in Thuringia* is the name of the new care and therapy study at Jena University Hospital. 
+
+The aim of the project is to improve the care structure and participation for Long COVID patients in rural areas. Towards this end, a bus is being converted into a mobile post-COVID ambulance, the so-called PoCO bus. The bus enables those affected to be examined and cared for close to home. Those affected will complete 12 weeks of training units on concentration and attention (BRAIN module), phased rehabilitation sports programmes (BODY module) and behavioural-therapy-related therapy offers (SOUL module).
 
 # Installation
 
 The package requires [poetry](https://python-poetry.org/). Make sure to have it installed and run `make install` after cloning this repository to install all dependencies.
 
-# Usage and Structure
+# Setup
 
-The template has the following structure:
+After gaining data access you will receive credentials for downloading. You can then create a file named `.env` in the root of the repository using the following template and filling in your credentials. Do not add this file to your git repository.
 
 ```
-.
-├── Makefile                        # frequently used commands, see the file for details
-├── README.md                       #
-├── computations                    # computations and results go here
-├── config                          # config files for hydra
-│   └── main.yaml                   #     
-├── data                            # data folder
-│   ├── 00_external                 # data from external sources
-│   ├── 01_raw                      # raw and unaltered input data  
-│   ├── 02_interim                  # interim or partly processed data
-│   └── 03_processed                # final data for analysis
-├── notebooks                       # all jupyter notebooks
-│   └── X.0X-template.ipynb         # a basic template with a hydra setup
-├── output                          # figures and other output
-├── pyproject.toml                  # basic poetry setup
-├── scripts                         # bash scripts
-│   └── execute_notebooks.sh        # execute jupyter notebooks from the command line
-└── src                             # package source code
-    ├── __init__.py                 #   
-    ├── template.py                 # again, a minimal template for source files including hydra
-    └── utils                       # frequently used helpers 
-        ├── __init__.py             #    
-        ├── colors.py               # my custom colors for creating figures
-        ├── db_utils.py             # connect to a PostgreSQL database
-        └── styling.py              # custom styling for matplotlib figures
+URL=
+USER=
+PW=
+ZIPPW=
 ```
 
-This is a reduced version of what you might find when using the standard ```cookiecutter-data-science``` template with the addition of relying on [poetry](https://python-poetry.org/) for package management.
+You can then download all data using ```make download```. You also need an `.xlsx` file containing data collected during outpatient visits to the PoCO bus. Put this file in `data/00_external` and adjust `data.files.users` in `config/main.yaml` accordingly. 
 
-```data``` holds all necessary external, raw and derived data. All ```jupyter```-notebooks are supposed to be placed in ```notebooks```. Visual output is put in ```output```. If you use the template notebook a new timestampled subfolder is created under ```output``` whenever you restart the jupyter kernel. This is to keep track of older versions of figures. 
+# Visualize
 
-```scripts``` holds all shell-scripts and other potential helpers. Modify ```execute_notebooks.sh``` in order to execute a chosen set of ```jupyter```-notebooks. This is pretty useful when you have a couple of ```jupyter```-notebooks that put figures into ```output``` and you want to run all of them at once.
-
-```src``` is installed in the project's virtual environment. Use it to package code that you want to use in your notebooks. Includes a small collection of preset functionality that I typically need.
+After finishing setup you can start the dashboard locally by first activating the virtual environment using `make activate`. Then type `make dashboard`. This should open a web-browser displaying the dashboard. Navigate to `localhost:8502` if the browser doesn't open the dashboard automatically.
